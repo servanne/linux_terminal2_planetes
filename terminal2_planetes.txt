@@ -1,0 +1,132 @@
+MBP-de-Servanne:~ servanne$ cd Nextcloud/SERY/Cybersecurite/exercices/linux
+MBP-de-Servanne:linux servanne$ wget https://github.com/bhubr/bhubr.github.io/raw/master/wild/planets.zip
+--2019-12-17 14:56:35--  https://github.com/bhubr/bhubr.github.io/raw/master/wild/planets.zip
+Résolution de github.com (github.com)… 140.82.118.4
+Connexion à github.com (github.com)|140.82.118.4|:443… connecté.
+requête HTTP transmise, en attente de la réponse… 302 Found
+Emplacement : https://raw.githubusercontent.com/bhubr/bhubr.github.io/master/wild/planets.zip [suivant]
+--2019-12-17 14:56:35--  https://raw.githubusercontent.com/bhubr/bhubr.github.io/master/wild/planets.zip
+Résolution de raw.githubusercontent.com (raw.githubusercontent.com)… 151.101.120.133
+Connexion à raw.githubusercontent.com (raw.githubusercontent.com)|151.101.120.133|:443… connecté.
+requête HTTP transmise, en attente de la réponse… 200 OK
+Taille : 300234 (293K) [application/zip]
+Sauvegarde en : « planets.zip »
+
+planets.zip         100%[===================>] 293,20K  --.-KB/s    ds 0,04s
+
+2019-12-17 14:56:35 (7,53 MB/s) — « planets.zip » sauvegardé [300234/300234]
+
+MBP-de-Servanne:linux servanne$ unzip planets.zip
+Archive:  planets.zip
+   creating: planets/
+  inflating: planets/mercury.jpeg
+  inflating: planets/earth.jpeg
+  inflating: planets/pluto.jpeg
+  inflating: planets/arrakis.jpeg
+  inflating: planets/jupiter.jpeg
+  inflating: planets/venus.jpeg
+  inflating: planets/mars.jpeg
+  inflating: planets/cybertron.jpeg
+  inflating: planets/coruscant.jpeg
+  inflating: planets/uranus.jpeg
+  inflating: planets/neptune.jpeg
+  inflating: planets/saturn.jpeg
+MBP-de-Servanne:linux servanne$ cd planets
+MBP-de-Servanne:planets servanne$ ls
+arrakis.jpeg	earth.jpeg	mercury.jpeg	saturn.jpeg
+coruscant.jpeg	jupiter.jpeg	neptune.jpeg	uranus.jpeg
+cybertron.jpeg	mars.jpeg	pluto.jpeg	venus.jpeg
+MBP-de-Servanne:planets servanne$ mkdir real
+MBP-de-Servanne:planets servanne$ mkdir fictional
+MBP-de-Servanne:planets servanne$ mkdir inhabited
+MBP-de-Servanne:planets servanne$ ls
+arrakis.jpeg	earth.jpeg	jupiter.jpeg	neptune.jpeg	saturn.jpeg
+coruscant.jpeg	fictional	mars.jpeg	pluto.jpeg	uranus.jpeg
+cybertron.jpeg	inhabited	mercury.jpeg	real		venus.jpeg
+MBP-de-Servanne:planets servanne$ cd real/
+MBP-de-Servanne:real servanne$ mkdir telluric
+MBP-de-Servanne:real servanne$ mkdir gas-giants
+MBP-de-Servanne:real servanne$ mkdir dwarf-planets
+MBP-de-Servanne:real servanne$ ls
+dwarf-planets	gas-giants	telluric
+MBP-de-Servanne:real servanne$ cd ..
+MBP-de-Servanne:planets servanne$ mv earth.jpeg real/
+MBP-de-Servanne:planets servanne$ mv arrakis.jpeg fictional/
+MBP-de-Servanne:planets servanne$ mv coruscant.jpeg fictional/
+MBP-de-Servanne:planets servanne$ mv cybertron.jpeg fictional/
+MBP-de-Servanne:planets servanne$ mv venus.jpeg real/gas-giants/
+MBP-de-Servanne:planets servanne$ mv mars.jpeg real/gas-giants/
+MBP-de-Servanne:planets servanne$ mv pluto.jpeg real/gas-giants/
+MBP-de-Servanne:planets servanne$ cd real/gas-giants/
+MBP-de-Servanne:gas-giants servanne$ ls
+mars.jpeg	pluto.jpeg	venus.jpeg
+MBP-de-Servanne:gas-giants servanne$ mv mars.jpeg ../telluric/
+MBP-de-Servanne:gas-giants servanne$ mv venus.jpeg ../telluric/
+MBP-de-Servanne:gas-giants servanne$ cd ..
+MBP-de-Servanne:real servanne$ ls
+dwarf-planets	earth.jpeg	gas-giants	telluric
+MBP-de-Servanne:real servanne$ mv earth.jpeg telluric/
+MBP-de-Servanne:real servanne$ cd ..
+MBP-de-Servanne:planets servanne$ ls
+fictional	jupiter.jpeg	neptune.jpeg	saturn.jpeg
+inhabited	mercury.jpeg	real		uranus.jpeg
+MBP-de-Servanne:planets servanne$ mv mercury.jpeg real/telluric/
+MBP-de-Servanne:planets servanne$ mv jupiter.jpeg real/gas-giants/
+MBP-de-Servanne:planets servanne$ mv saturn.jpeg real/gas-giants/
+MBP-de-Servanne:planets servanne$ mv neptune.jpeg real/dwarf-planets/
+MBP-de-Servanne:planets servanne$ mv uranus.jpeg real/dwarf-planets/
+MBP-de-Servanne:planets servanne$ ls
+fictional	inhabited	real
+MBP-de-Servanne:planets servanne$ cp real/telluric/earth.jpeg inhabited/
+MBP-de-Servanne:planets servanne$ cp real/telluric/mercury.jpeg inhabited/
+MBP-de-Servanne:planets servanne$ cp real/telluric/venus.jpeg inhabited/
+MBP-de-Servanne:planets servanne$ cp real/telluric/mars.jpeg inhabited/
+MBP-de-Servanne:planets servanne$ ls inhabited/
+earth.jpeg	mars.jpeg	mercury.jpeg	venus.jpeg
+MBP-de-Servanne:planets servanne$ rm real/gas-giants/pluto.jpeg
+MBP-de-Servanne:planets servanne$ tree
+-bash: tree: command not found
+MBP-de-Servanne:planets servanne$ brew search tree
+==> Formulae
+pstree              tree                treecc              treefrog
+
+==> Casks
+family-tree-builder                      sourcetree
+figtree                                  treesheets
+MBP-de-Servanne:planets servanne$ brew install tree
+Updating Homebrew...
+==> Auto-updated Homebrew!
+Updated 1 tap (homebrew/core).
+==> Updated Formulae
+yadm
+
+==> Downloading https://homebrew.bintray.com/bottles/tree-1.8.0.catalina.bottle.
+######################################################################## 100.0%
+==> Pouring tree-1.8.0.catalina.bottle.tar.gz
+🍺  /usr/local/Cellar/tree/1.8.0: 8 files, 121.1KB
+MBP-de-Servanne:planets servanne$ tree
+.
+├── fictional
+│   ├── arrakis.jpeg
+│   ├── coruscant.jpeg
+│   └── cybertron.jpeg
+├── inhabited
+│   ├── earth.jpeg
+│   ├── mars.jpeg
+│   ├── mercury.jpeg
+│   └── venus.jpeg
+└── real
+    ├── dwarf-planets
+    │   ├── neptune.jpeg
+    │   └── uranus.jpeg
+    ├── gas-giants
+    │   ├── jupiter.jpeg
+    │   └── saturn.jpeg
+    └── telluric
+        ├── earth.jpeg
+        ├── mars.jpeg
+        ├── mercury.jpeg
+        └── venus.jpeg
+
+6 directories, 15 files
+MBP-de-Servanne:planets servanne$
